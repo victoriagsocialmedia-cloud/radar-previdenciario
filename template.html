@@ -46,6 +46,7 @@ details.ro summary{cursor:pointer;font-weight:600}
 .time{font-weight:600;border-radius:var(--r);background:var(--bg);border:1px solid var(--line);padding:2px 8px;align-self:start;text-align:center}
 .sug{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px;margin-top:10px}
 .sug div{border-top:2px solid var(--line);padding-top:6px;font-size:14px}.sug b{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.achip{font:inherit;font-size:14px;color:var(--fg);padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer}.achip[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}.achip small{opacity:.7;margin-left:4px}
 .empty{color:var(--muted);padding:16px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:14px}
 .box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
@@ -76,12 +77,18 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
     <div class="tabs" role="tablist">
       <button class="tab" data-tab="dia" aria-selected="true">Hoje</button>
       <button class="tab" data-tab="semana" aria-selected="false">Semana</button>
+      <button class="tab" data-tab="assuntos" aria-selected="false">Assuntos</button>
       <button class="tab" data-tab="mes" aria-selected="false">Mês</button>
     </div>
     <select id="filtro" aria-label="Filtrar por assunto"></select>
   </div>
   <section data-pane="dia"><p class="note">Últimas 48 horas a partir da notícia mais recente coletada. Mais veículos cobrindo = mais em alta.</p><div class="list" id="cdia"></div></section>
   <section data-pane="semana" hidden><p class="note">Últimos 7 dias a partir da notícia mais recente coletada, do assunto mais coberto para o menos coberto.</p><div class="list" id="csem"></div></section>
+  <section data-pane="assuntos" hidden>
+    <p class="note">Escolha um assunto para ver todas as notícias coletadas desde junho de 2026, da mais recente para a mais antiga.</p>
+    <div class="chips" id="chips"></div>
+    <div class="list" id="cass"></div>
+  </section>
   <section data-pane="mes" hidden>
     <p class="note">Resumo do que foi coletado até agora. Os meses anteriores têm só os destaques encontrados; daqui para frente o painel acumula todo dia.</p>
     <div class="grid">
@@ -101,7 +108,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
 <script>
 var DATA=__DATA__;
 (function(){
-var DAY=864e5,MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
+var ASSUNTOS=['Aposentadoria Especial','BPC/LOAS','Benefício por Incapacidade','Revisão da Vida Toda','Pensão por Morte','Planejamento Previdenciário','Servidor Público','Outros assuntos'],assunto='Aposentadoria Especial',DAY=864e5,MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
 ML=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],filtro='';
 function dt(s){return new Date(s+'T00:00:00Z')}
 function fd(s){var d=dt(s);return d.getUTCDate()+' '+MES[d.getUTCMonth()]+' '+d.getUTCFullYear()}
@@ -145,9 +152,15 @@ var mm={};rows.forEach(function(r){var k=r.date.slice(0,7),x=mm[k]=mm[k]||{n:0,v
 var me=document.getElementById('meses');
 me.replaceChildren.apply(me,Object.keys(mm).sort().reverse().map(function(k){var x=mm[k],t=Object.keys(x.t).sort(function(a,b){return x.t[b]-x.t[a]})[0],p=k.split('-'),tr=document.createElement('tr');
  [ML[+p[1]-1]+' '+p[0],x.n,x.v,t].forEach(function(v){tr.appendChild(h('td',null,String(v)))});return tr}));
+function drawAss(){
+ var since=rows.filter(function(r){return r.date>='2026-06-01'}),ce=document.getElementById('chips'),la=document.getElementById('cass');
+ ce.replaceChildren.apply(ce,ASSUNTOS.map(function(a){var n=since.filter(function(r){return r.beneficio===a}).length,b=h('button','achip',a);b.type='button';b.setAttribute('aria-pressed',a===assunto?'true':'false');b.appendChild(h('small',null,String(n)));b.addEventListener('click',function(){assunto=a;drawAss()});return b}));
+ var l=since.filter(function(r){return r.beneficio===assunto}).sort(function(a,b){return a.date<b.date?1:-1});
+ la.replaceChildren.apply(la,l.length?l.map(card):[h('div','empty','Ainda não encontrei notícias verificadas deste assunto desde junho. O painel acumula nas próximas atualizações.')])}
+drawAss();
 document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-tab');
  document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
- document.querySelectorAll('[data-pane]').forEach(function(p){p.hidden=p.getAttribute('data-pane')!==k});sel.hidden=(k==='mes')})});
+ document.querySelectorAll('[data-pane]').forEach(function(p){p.hidden=p.getAttribute('data-pane')!==k});sel.hidden=(k==='mes'||k==='assuntos')})});
 })();
 </script>
 </body>

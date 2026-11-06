@@ -18,7 +18,11 @@
   "gancho": "Fala: 'Fibromialgia dá direito a benefício do INSS? Muita gente erra essa resposta.' Tela: a pergunta em letras grandes sobre fundo simples.",
   "desenvolvimento": "1) A lei reconhece fibromialgia como deficiência, com direitos como cotas e isenção na compra de veículo. 2) Para o INSS, pesa a incapacidade para o trabalho comprovada; só o diagnóstico não basta. 3) Guarde laudos, exames e receitas, e peça ao médico que descreva como a doença limita o trabalho.",
   "cta": "Salve para não esquecer e mande para quem convive com fibromialgia.",
-  "beneficio": "Benefício por Incapacidade"
+  "beneficio": "Benefício por Incapacidade",
+  "servico": "Benefícios por incapacidade",
+  "oportunidade": 2,
+  "publico": "Pessoa com fibromialgia que trabalha com dor ou foi afastada",
+  "pq_vender": "Assunto de alta busca; a dúvida \"tenho direito?\" leva à análise de laudos e incapacidade."
  },
  {
   "id": "n14",
@@ -39,7 +43,11 @@
   "gancho": "Fala: 'O INSS negou seu auxílio-doença sem perícia? Você tem só 10 dias.' Tela: contagem regressiva de 10 dias sobre a carta de negativa.",
   "desenvolvimento": "1) O que mudou: reanálise pela Perícia Médica Federal em até 10 dias da ciência da negativa, com novos documentos médicos. 2) Cuidado: recorrer antes faz perder a reanálise; sem reanálise, o recurso é de 30 dias. 3) Confira: a data em que você foi notificado, o motivo da negativa e se o atestado está legível, com CID, período de afastamento e identificação do profissional.",
   "cta": "Salve para não perder o prazo e mande para quem teve o auxílio negado. Comente 'PRAZO' se quiser entender o seu caso.",
-  "beneficio": "Benefício por Incapacidade"
+  "beneficio": "Benefício por Incapacidade",
+  "servico": "Benefícios por incapacidade",
+  "oportunidade": 3,
+  "publico": "Segurado que teve auxílio por incapacidade negado sem perícia (Atestmed)",
+  "pq_vender": "O prazo curto de 10 dias cria urgência e a escolha entre reanálise e recurso exige orientação."
  },
  {
   "id": "n01",
@@ -60,7 +68,11 @@
   "gancho": "Fala: 'Se você se aposentou depois de maio, esse vídeo é pra você.' Tela: calendário com o dia 24/11 destacado em círculo.",
   "desenvolvimento": "1) Quem recebe: benefícios concedidos a partir de maio de 2026. 2) Datas: até 1 salário mínimo, de 24/11 a 7/12 pelo final do benefício; acima do mínimo, de 1º a 7/12. 3) Onde conferir: 'Extrato de pagamento' no Meu INSS.",
   "cta": "Salve para consultar a sua data e mande para o aposentado ou pensionista da sua família.",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "",
+  "oportunidade": 0,
+  "publico": "",
+  "pq_vender": ""
  },
  {
   "id": "n12",
@@ -81,7 +93,11 @@
   "gancho": "Capa: '25 ou 30 anos? O STF parou o julgamento no 5 a 3.' Slide 1: placar parcial com a palavra 'SUSPENSO' em destaque.",
   "desenvolvimento": "1) O caso: aposentadas do Banco do Brasil e a regra de 30 anos da Previ. 2) Onde está: placar parcial 5 a 3, faltam votos, sem data para voltar. 3) Confira: o que diz o regulamento do seu plano e acompanhe o Tema 1.423 antes de qualquer pedido.",
   "cta": "Salve para acompanhar o desfecho e compartilhe com quem tem previdência complementar.",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "",
+  "oportunidade": 0,
+  "publico": "",
+  "pq_vender": ""
  },
  {
   "id": "n11",
@@ -102,7 +118,11 @@
   "gancho": "Fala: 'Trabalhou com barulho, calor ou produto químico? O STF mexeu na sua aposentadoria.' Tela: texto grande 'SEM IDADE MÍNIMA?' com a pergunta piscando.",
   "desenvolvimento": "1) O que caiu: a idade mínima; seguem valendo 15, 20 ou 25 anos de exposição, conforme a atividade. 2) O que não mudou: não dá para converter tempo especial em comum após a reforma. 3) Confira: PPP, laudos e as datas de cada período trabalhado.",
   "cta": "Salve e mande para quem trabalha ou trabalhou em ambiente insalubre. Dúvida sobre o seu PPP? Comente 'PPP'.",
-  "beneficio": "Aposentadoria Especial"
+  "beneficio": "Aposentadoria Especial",
+  "servico": "Aposentadorias e planejamento",
+  "oportunidade": 3,
+  "publico": "Trabalhador exposto a agentes nocivos (ruído, calor, químicos, vigilante)",
+  "pq_vender": "Quem tem PPP e tempo especial pode ter caminho para se aposentar sem idade mínima; pede análise de documentos."
  },
  {
   "id": "n24",
@@ -123,7 +143,11 @@
   "formato": "Reels/TikTok, com stories de acompanhamento",
   "gancho": "Fala: 'Dia 11 o STJ vai decidir uma regra que mexe com a proteção da sua família.' Tela: contagem regressiva para 11/11.",
   "desenvolvimento": "1) O que é período de graça: tempo em que você continua segurado mesmo sem contribuir. 2) A dúvida: a extensão de 24 meses vale mais de uma vez? 3) O que fazer: guardar o histórico de contribuições (CNIS) e acompanhar o resultado.",
-  "cta": "Siga para saber o resultado no dia. Salve e mande para quem já parou de contribuir."
+  "cta": "Siga para saber o resultado no dia. Salve e mande para quem já parou de contribuir.",
+  "servico": "BPC/LOAS e pensão por morte",
+  "oportunidade": 2,
+  "publico": "Família em que o segurado voltou a contribuir, parou e morreu",
+  "pq_vender": "Tem data (11/11); serve para acompanhar o resultado."
  },
  {
   "id": "n02",
@@ -139,7 +163,11 @@
   "video": "Reels curto desfazendo a confusão: 'O dinheiro que caiu esta semana é de outubro, o de novembro vem dia 24.'",
   "static": "Post único com o calendário por final do benefício, em tabela limpa e fácil de salvar.",
   "stories": "Story com figurinha de contagem regressiva até 24/11 e link para o calendário oficial.",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "",
+  "oportunidade": 0,
+  "publico": "",
+  "pq_vender": ""
  },
  {
   "id": "n16",
@@ -160,7 +188,11 @@
   "gancho": "Capa: 'STF mantém desconto na aposentadoria de servidor com doença grave. Você é afetado?' Slide 1: 'Aposentado do INSS: NÃO' em destaque.",
   "desenvolvimento": "1) O que mudou na regra: a isenção antes ia até o dobro do teto do INSS e hoje vai até o teto. 2) Quem é afetado: servidor de regime próprio com benefício acima do teto. 3) O que não muda: aposentados do INSS e a isenção de Imposto de Renda por doença grave.",
   "cta": "Salve e mande para servidores aposentados que você conhece. Dúvida sobre o seu caso? Comente 'SERVIDOR'.",
-  "beneficio": "Servidor Público"
+  "beneficio": "Servidor Público",
+  "servico": "",
+  "oportunidade": 0,
+  "publico": "",
+  "pq_vender": ""
  },
  {
   "id": "n18",
@@ -181,7 +213,11 @@
   "formato": "Carrossel no Instagram",
   "gancho": "Capa: 'Filho inválido maior de 21 anos tem direito à pensão? O STJ respondeu.' Slide 1: a regra em uma frase.",
   "desenvolvimento": "1) O que decidiu: vale quando a incapacidade é anterior à morte do segurado, mesmo depois dos 21 anos. 2) Atenção: se a incapacidade veio depois da morte, não vale. 3) Guarde laudos, prontuários, exames e comprovantes de dependência da época do óbito.",
-  "cta": "Salve e compartilhe com famílias que cuidam de um filho com deficiência."
+  "cta": "Salve e compartilhe com famílias que cuidam de um filho com deficiência.",
+  "servico": "BPC/LOAS e pensão por morte",
+  "oportunidade": 3,
+  "publico": "Família que cuida de filho maior com invalidez",
+  "pq_vender": "Decisão clara, com requisitos que a família precisa documentar."
  },
  {
   "id": "n13",
@@ -202,7 +238,11 @@
   "gancho": "Fala: 'Se você se aposentou entre 2019 e 2022, olha a carta de concessão.' Tela: carta de concessão com o campo do cálculo circulado.",
   "desenvolvimento": "1) Quem: aposentados entre 13/11/2019 e 05/05/2022. 2) Atenção: não é aumento automático, só vale se o novo cálculo for melhor. 3) Confira: carta de concessão, memória de cálculo e extrato do CNIS no Meu INSS.",
   "cta": "Salve, abra sua carta de concessão e comente 'CÁLCULO' para saber se vale a pena analisar.",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "Revisões e descontos indevidos",
+  "oportunidade": 3,
+  "publico": "Aposentados entre 13/11/2019 e 05/05/2022",
+  "pq_vender": "Pode haver revisão do cálculo; o escritório pode analisar a carta de concessão caso a caso."
  },
  {
   "id": "n03",
@@ -218,7 +258,11 @@
   "video": "Talking head de 40s para público empresarial: o que o STJ decidiu em linguagem simples e por que importa para quem tem plano de ações.",
   "static": "Post informativo com a tese em uma frase e uma linha sobre o efeito nos processos suspensos.",
   "stories": "Caixa de perguntas para empresários e RH: 'Sua empresa tem plano de opção de ações?'",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "",
+  "oportunidade": 0,
+  "publico": "",
+  "pq_vender": ""
  },
  {
   "id": "n22",
@@ -239,7 +283,11 @@
   "formato": "Reels/TikTok, com carrossel de apoio",
   "gancho": "Fala: 'Em janeiro de 2027 duas regras de aposentadoria ficam mais difíceis. Veja se você está no prazo.' Tela: tabela 2026 x 2027 com a diferença circulada.",
   "desenvolvimento": "1) Pontos: sobem 1 ponto (mulheres 94, homens 104). 2) Idade progressiva: sobe 6 meses (mulheres 60, homens 65). 3) Quem já cumpriu os requisitos não perde o direito: confira o seu CNIS e peça um planejamento.",
-  "cta": "Salve e comente 'PLANEJAR' para saber a melhor data para você."
+  "cta": "Salve e comente 'PLANEJAR' para saber a melhor data para você.",
+  "servico": "Aposentadorias e planejamento",
+  "oportunidade": 3,
+  "publico": "Quem se aposentaria pelas regras de transição e pode ser afetado em 1º/1/2027",
+  "pq_vender": "Prazo concreto (janeiro) incentiva planejamento previdenciário antes da mudança."
  },
  {
   "id": "n19",
@@ -260,7 +308,11 @@
   "formato": "Reels/TikTok",
   "gancho": "Fala: 'Se alguém da sua família desapareceu, quanto antes você agir, melhor.' Tela: calendário com a data da decisão judicial marcada.",
   "desenvolvimento": "1) A pensão passa a contar da decisão judicial que reconhece a morte presumida. 2) Em catástrofe ou acidente comprovado, conta da data do fato. 3) Procure orientação cedo, porque demorar reduz o valor retroativo.",
-  "cta": "Salve para quem possa precisar e compartilhe com um advogado de confiança da sua família."
+  "cta": "Salve para quem possa precisar e compartilhe com um advogado de confiança da sua família.",
+  "servico": "BPC/LOAS e pensão por morte",
+  "oportunidade": 1,
+  "publico": "Família de segurado desaparecido",
+  "pq_vender": "Nicho; demonstra cuidado com casos raros."
  },
  {
   "id": "n20",
@@ -281,7 +333,11 @@
   "formato": "Carrossel no Instagram, com Reels de apoio",
   "gancho": "Capa: 'BPC/LOAS: o INSS está de olho no seu CadÚnico.' Slide 1: um check-list com 'Atualizado?'",
   "desenvolvimento": "1) O que mudou: mais cruzamento de dados e revisões mais frequentes. 2) Risco: renda inconsistente ou cadastro desatualizado pode levar à suspensão. 3) Faça agora: atualize o CadÚnico no CRAS e guarde os comprovantes.",
-  "cta": "Salve para conferir seu cadastro e mande para quem recebe BPC."
+  "cta": "Salve para conferir seu cadastro e mande para quem recebe BPC.",
+  "servico": "BPC/LOAS e pensão por morte",
+  "oportunidade": 3,
+  "publico": "Quem recebe ou pede BPC/LOAS",
+  "pq_vender": "O pente-fino e o CadÚnico geram medo de perder o benefício; abre espaço para orientação."
  },
  {
   "id": "n04",
@@ -297,7 +353,11 @@
   "video": "Reels explicando o que é o Atestmed e quando o atestado digital pode adiantar o auxílio-doença.",
   "static": "Carrossel 'Como adiantar seu pedido de auxílio-doença': o que é o atestado digital e o que conferir antes de enviar.",
   "stories": "Enquete 'Seu pedido está parado esperando perícia?'",
-  "beneficio": "Benefício por Incapacidade"
+  "beneficio": "Benefício por Incapacidade",
+  "servico": "Benefícios por incapacidade",
+  "oportunidade": 2,
+  "publico": "Quem aguarda perícia ou tem auxílio-doença parado",
+  "pq_vender": "Mostra como adiantar o pedido e o que conferir no atestado."
  },
  {
   "id": "n06",
@@ -313,7 +373,11 @@
   "video": "Reels explicando o que é o limbo previdenciário com um exemplo do dia a dia (alta do INSS, inapto na empresa).",
   "static": "Post 'O que é limbo previdenciário?' com definição e o que o projeto propõe.",
   "stories": "Enquete 'Você já ficou sem salário e sem benefício?'",
-  "beneficio": "Benefício por Incapacidade"
+  "beneficio": "Benefício por Incapacidade",
+  "servico": "Benefícios por incapacidade",
+  "oportunidade": 2,
+  "publico": "Trabalhador com alta do INSS e considerado inapto pela empresa",
+  "pq_vender": "Situação comum e angustiante; abre conversa sobre os caminhos possíveis."
  },
  {
   "id": "n05",
@@ -329,7 +393,11 @@
   "video": "Reels 'Doença grave dispensa carência no INSS: veja quais' com a lista curta e um aviso de que cada caso precisa de análise.",
   "static": "Carrossel com as condições citadas e o que é carência, em linguagem simples.",
   "stories": "Caixa de perguntas 'Teve um diagnóstico grave e não sabe se tem direito?'",
-  "beneficio": "Benefício por Incapacidade"
+  "beneficio": "Benefício por Incapacidade",
+  "servico": "Benefícios por incapacidade",
+  "oportunidade": 2,
+  "publico": "Pessoa com doença grave que teve benefício negado por falta de carência",
+  "pq_vender": "Quem foi negado por carência pode ter direito a rever o pedido."
  },
  {
   "id": "n07",
@@ -345,7 +413,11 @@
   "video": "Talking head 45s: o que é período de graça e por que a decisão importa para quem perdeu o emprego.",
   "static": "Post explicativo 'Período de graça: o que é' com a decisão em uma frase.",
   "stories": "Caixa de perguntas sobre período de graça.",
-  "beneficio": "Benefício por Incapacidade"
+  "beneficio": "Benefício por Incapacidade",
+  "servico": "Benefícios por incapacidade",
+  "oportunidade": 1,
+  "publico": "Segurado com auxílio-acidente e período de graça",
+  "pq_vender": "Tema de nicho; serve para conteúdo educativo."
  },
  {
   "id": "n08",
@@ -361,7 +433,11 @@
   "video": "Reels 'Ficou desempregado? Isso pode manter você segurado por mais tempo' com a regra simples.",
   "static": "Carrossel sobre qualidade de segurado e período de graça, com uma linha sobre a prova do desemprego.",
   "stories": "Enquete 'Você sabe o que é qualidade de segurado?'",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "Aposentadorias e planejamento",
+  "oportunidade": 2,
+  "publico": "Desempregado que quer manter a qualidade de segurado",
+  "pq_vender": "Educativo e ligado a planejamento: quanto tempo continua protegido."
  },
  {
   "id": "n17",
@@ -382,7 +458,11 @@
   "formato": "Reels/TikTok, com carrossel de apoio",
   "gancho": "Fala: 'A revisão da vida toda acabou. E se você já ganhou, esse vídeo é pra você.' Tela: a frase 'Acabou?' sobre fundo escuro.",
   "desenvolvimento": "1) O que aconteceu: o STF encerrou o caso, sem possibilidade de recurso. 2) Quem não ganhou: processos serão arquivados. 3) Quem já ganhou: o benefício pode voltar a diminuir, e a devolução depende da data da decisão. Guarde a sua sentença e a carta de concessão.",
-  "cta": "Salve e mande para quem entrou com essa revisão. Comente 'VIDA' para entender o seu caso."
+  "cta": "Salve e mande para quem entrou com essa revisão. Comente 'VIDA' para entender o seu caso.",
+  "servico": "Revisões e descontos indevidos",
+  "oportunidade": 3,
+  "publico": "Quem entrou ou pensou em entrar com a revisão da vida toda",
+  "pq_vender": "Muito interesse do público e quem já ganhou precisa de orientação sobre o que fazer agora."
  },
  {
   "id": "n21",
@@ -403,7 +483,11 @@
   "formato": "Carrossel no Instagram",
   "gancho": "Capa: 'Professor aposentado por invalidez: o STF mexeu no seu cálculo.' Slide 1: 'Redução de 5 anos' em destaque.",
   "desenvolvimento": "1) O que decidiu: o cálculo deve considerar a redução de cinco anos do magistério. 2) Quem pode ser beneficiado: professor de regime próprio que só deu aula e se aposentou por invalidez antes de 2019. 3) O que fazer: pedir a análise do cálculo com portaria e memória de cálculo.",
-  "cta": "Salve e mande para um professor aposentado. Comente 'PROFESSOR' para saber se o seu caso se encaixa."
+  "cta": "Salve e mande para um professor aposentado. Comente 'PROFESSOR' para saber se o seu caso se encaixa.",
+  "servico": "",
+  "oportunidade": 0,
+  "publico": "",
+  "pq_vender": ""
  },
  {
   "id": "n09",
@@ -419,7 +503,11 @@
   "video": "Reels de acompanhamento: o que fazer hoje se o prazo passou e houve desconto não autorizado.",
   "static": "Post com o caminho no Meu INSS e o que guardar como prova.",
   "stories": "Caixa de perguntas 'Você teve desconto que não autorizou?'",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "Revisões e descontos indevidos",
+  "oportunidade": 2,
+  "publico": "Quem teve desconto de associação não autorizado",
+  "pq_vender": "Conteúdo de acompanhamento; confirmar prazos antes de qualquer chamada."
  },
  {
   "id": "n10",
@@ -435,6 +523,10 @@
   "video": "Talking head: 'O que é dano moral presumido e por que o STJ vai decidir isso'.",
   "static": "Post 'Descontos indevidos no INSS: o que o STJ vai decidir'.",
   "stories": "Enquete 'Devolver o valor é suficiente?'",
-  "beneficio": "Outros assuntos"
+  "beneficio": "Outros assuntos",
+  "servico": "Revisões e descontos indevidos",
+  "oportunidade": 2,
+  "publico": "Aposentado ou pensionista com descontos indevidos",
+  "pq_vender": "Mostra a discussão sobre indenização; exige cuidado para não prometer resultado."
  }
 ]

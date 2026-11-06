@@ -47,6 +47,7 @@ details.ro summary{cursor:pointer;font-weight:600}
 .sug{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px;margin-top:10px}
 .sug div{border-top:2px solid var(--line);padding-top:6px;font-size:14px}.sug b{display:block}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.achip{font:inherit;font-size:14px;color:var(--fg);padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer}.achip[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}.achip small{opacity:.7;margin-left:4px}
+.venda{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;margin:8px 0;font-size:14px}.venda b{font-weight:600}.venda div+div{margin-top:4px}.chip.op{border-color:var(--fg);font-weight:600}
 .empty{color:var(--muted);padding:16px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:14px}
 .box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
@@ -70,7 +71,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
   <div class="kpis">
     <div class="kpi"><span>Pautas na semana</span><b id="k1">—</b></div>
     <div class="kpi"><span>Para publicar já</span><b id="k2">—</b></div>
-    <div class="kpi"><span>Veículos cobrindo</span><b id="k3">—</b></div>
+    <div class="kpi"><span>Alta oportunidade (nota 3)</span><b id="k3">—</b></div>
     <div class="kpi"><span>Assunto mais em alta</span><b class="t" id="k4">—</b></div>
   </div>
   <div class="bar">
@@ -82,10 +83,10 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
     </div>
     <select id="filtro" aria-label="Filtrar por assunto"></select>
   </div>
-  <section data-pane="dia"><p class="note">Últimas 48 horas a partir da notícia mais recente coletada. Mais veículos cobrindo = mais em alta.</p><div class="list" id="cdia"></div></section>
-  <section data-pane="semana" hidden><p class="note">Últimos 7 dias a partir da notícia mais recente coletada, do assunto mais coberto para o menos coberto.</p><div class="list" id="csem"></div></section>
+  <section data-pane="dia"><p class="note">Últimas 48 horas a partir da notícia mais recente. Só aparecem pautas ligadas a um serviço do escritório, das mais vendáveis (nota 3) para as menos.</p><div class="list" id="cdia"></div></section>
+  <section data-pane="semana" hidden><p class="note">Últimos 7 dias a partir da notícia mais recente. Só aparecem pautas ligadas a um serviço do escritório, das mais vendáveis (nota 3) para as menos.</p><div class="list" id="csem"></div></section>
   <section data-pane="assuntos" hidden>
-    <p class="note">Escolha um assunto para ver todas as notícias coletadas desde junho de 2026, da mais recente para a mais antiga.</p>
+    <p class="note">Escolha um assunto para ver todas as notícias coletadas desde junho de 2026, da mais recente para a mais antiga. Aqui entram também as sem serviço ligado.</p>
     <div class="chips" id="chips"></div>
     <div class="list" id="cass"></div>
   </section>
@@ -99,6 +100,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
   </section>
   <details class="how"><summary>Como ler este painel</summary>
     <p><b>Veículos:</b> quantos veículos diferentes publicaram o assunto entre os que encontrei. É o termômetro de "em alta".</p>
+    <p><b>Oportunidade (1 a 3):</b> quão bem a notícia se liga a um serviço do escritório e a um público que pode precisar dele. 3 = pauta forte para conteúdo; 1 = nicho. Pautas sem serviço ligado só aparecem na aba Assuntos.</p>
     <p><b>Publicar já:</b> pauta com prazo ou data próxima, em que o atraso faz perder relevância.</p>
     <p><b>Ganchos e roteiro:</b> pontos de partida editoriais. Antes de publicar, confira o texto com o time jurídico e com as regras de publicidade da OAB.</p>
     <p><b>Fontes:</b> gov.br e INSS, portais de notícias, veículos jurídicos, IBDP, IEPREV e Previdenciarista.com. Assunto, urgência e sugestões são julgamento editorial.</p>
@@ -117,14 +119,16 @@ var rows=DATA.map(function(r){r.outlets=Number(r.outlets)||0;return r});
 var max=Math.max.apply(null,rows.map(function(r){return +dt(r.date)}));
 function win(days){return rows.filter(function(r){return +dt(r.date)>=max-days*DAY}).sort(function(a,b){return b.outlets-a.outlets||(a.date<b.date?1:-1)})}
 function top(list){var t={};list.forEach(function(r){t[r.theme]=(t[r.theme]||0)+r.outlets});var k=Object.keys(t).sort(function(a,b){return t[b]-t[a]})[0];return k?{name:k,n:t[k]}:null}
+function winS(days){return win(days).filter(function(r){return r.servico}).sort(function(a,b){return b.oportunidade-a.oportunidade||b.outlets-a.outlets||(a.date<b.date?1:-1)})}
 function card(r){
  var c=h('article','card'+(r.urgent==='sim'?' urg':'')),m=h('div','meta');
  if(r.urgent==='sim')m.appendChild(h('span','chip hot','Publicar já'));
- m.appendChild(h('span','chip',r.theme));m.appendChild(h('span','chip',r.outlets+(r.outlets===1?' veículo':' veículos')));
+ m.appendChild(h('span','chip',r.theme));if(r.oportunidade>0)m.appendChild(h('span','chip op','Oportunidade '+'★'.repeat(r.oportunidade)+'☆'.repeat(3-r.oportunidade)));m.appendChild(h('span','chip',r.outlets+(r.outlets===1?' veículo':' veículos')));
  m.appendChild(h('span',null,fd(r.date)+' · '+r.source));c.appendChild(m);c.appendChild(h('h3',null,r.title));
  if(r.subtema)c.appendChild(h('div','lab','Subtema: '+r.subtema));
  if(r.hook1)c.appendChild(h('div','lab','O que aconteceu, sem juridiquês'));
  c.appendChild(h('p',null,r.o_que||r.summary));
+ if(r.servico){var v=h('div','venda');[['Serviço do escritório',r.servico],['Quem pode se interessar',r.publico],['Por que gera demanda',r.pq_vender]].forEach(function(p){var d=h('div');d.appendChild(h('b',null,p[0]+': '));d.appendChild(document.createTextNode(p[1]));v.appendChild(d)});c.appendChild(v)}
  if(/^https?:\/\//.test(r.url)){var a=h('a','src','Abrir fonte ↗');a.href=r.url;a.target='_blank';a.rel='noopener noreferrer';c.appendChild(a)}
  if(r.confirmar)c.appendChild(h('p','conf','Confirmar antes de publicar: '+r.confirmar));
  if(r.hook1){
@@ -133,13 +137,13 @@ function card(r){
   [['0–5s','Gancho visual e fala inicial: '+r.gancho],['5–35s','Desenvolvimento prático: '+r.desenvolvimento],['35–45s','Chamada para ação: '+r.cta]].forEach(function(p){var s=h('div','step');s.appendChild(h('span','time',p[0]));s.appendChild(h('span',null,p[1]));ro.appendChild(s)});
   c.appendChild(ro);return c}
  var s=h('div','sug');[['Vídeo',r.video],['Estático',r.static],['Stories',r.stories]].forEach(function(p){var d=h('div');d.appendChild(h('b',null,p[0]));d.appendChild(document.createTextNode(p[1]||''));s.appendChild(d)});c.appendChild(s);return c}
-function cards(id,days){var el=document.getElementById(id),l=win(days).filter(function(r){return !filtro||r.theme===filtro});
+function cards(id,days){var el=document.getElementById(id),l=winS(days).filter(function(r){return !filtro||r.theme===filtro});
  el.replaceChildren.apply(el,l.length?l.map(card):[h('div','empty','Nenhuma notícia coletada nesta janela para o filtro escolhido.')])}
-var wk=win(7),tp=top(wk),urg=wk.filter(function(r){return r.urgent==='sim'}).length;
+var wk=winS(7),tp=top(wk),urg=wk.filter(function(r){return r.urgent==='sim'}).length;
 document.getElementById('asof').textContent='Notícia mais recente: '+fd(new Date(max).toISOString().slice(0,10));
 document.getElementById('take').textContent=tp?('Em alta na semana: '+tp.name+'. '+(urg?(urg===1?'1 pauta pede publicação já.':urg+' pautas pedem publicação já.'):'Nenhuma pauta urgente.')):'';
 document.getElementById('k1').textContent=wk.length;document.getElementById('k2').textContent=urg;
-document.getElementById('k3').textContent=wk.reduce(function(s,x){return s+x.outlets},0);document.getElementById('k4').textContent=tp?tp.name:'—';
+document.getElementById('k3').textContent=wk.filter(function(x){return x.oportunidade===3}).length;document.getElementById('k4').textContent=tp?tp.name:'—';
 var sel=document.getElementById('filtro'),temas=Array.from(new Set(rows.map(function(r){return r.theme}))).sort();
 sel.replaceChildren.apply(sel,[new Option('Todos os assuntos','')].concat(temas.map(function(t){return new Option(t,t)})));
 sel.onchange=function(){filtro=sel.value;cards('cdia',1);cards('csem',7)};

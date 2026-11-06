@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Radar Previdenciário</title>
+<style>
+:root{--bg:#f6f3ec;--panel:#fff;--fg:#1f1d1a;--muted:#6b665e;--line:#ddd7ca;--bad:#b3261e;--bar:#b3261e;--r:10px}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1917;--panel:#242220;--fg:#f0ece4;--muted:#a39d92;--line:#3a3733;--bad:#f2766d;--bar:#f2766d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.rp{max-width:1080px;margin:0 auto;padding:20px clamp(16px,3vw,28px) 48px}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px}
+h1{font:400 clamp(28px,5vw,40px)/1.1 Georgia,"Times New Roman",serif;margin:0}
+.sub{color:var(--muted);margin:4px 0 0}
+.asof{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--panel)}
+.take{font-size:18px;font-weight:600;margin:14px 0 16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:10px;margin-bottom:22px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:4px}
+.kpi span{font-size:13px;color:var(--muted)}
+.kpi b{font:400 30px/1.1 Georgia,serif}
+.kpi b.t{font:600 17px/1.3 system-ui,sans-serif}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab,select{font:inherit;color:var(--fg);padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+.tab[aria-selected=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.note{color:var(--muted);font-size:13px;margin:0 0 14px}
+.list{display:grid;gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:var(--r);padding:16px}
+.card.urg{border-left-color:var(--bad)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px;font-size:13px;color:var(--muted)}
+.chip{padding:2px 10px;border-radius:999px;border:1px solid var(--line)}
+.chip.hot{border-color:var(--bad);color:var(--bad);font-weight:600}
+.card h3{font-size:18px;font-weight:600;margin:0 0 4px;line-height:1.3}
+.lab{font-size:13px;font-weight:600;color:var(--muted);margin:10px 0 2px}
+.card p{margin:0 0 8px}
+.conf{color:var(--muted);font-size:13px}
+.src{font-size:13px;color:var(--fg)}
+.hooks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:10px;margin-top:10px}
+.hook{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:8px 14px;font-weight:600}
+.hook small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+details.ro{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+details.ro summary{cursor:pointer;font-weight:600}
+.step{display:grid;grid-template-columns:5.2rem 1fr;gap:10px;margin-top:8px;font-size:14px}
+.time{font-weight:600;border-radius:var(--r);background:var(--bg);border:1px solid var(--line);padding:2px 8px;align-self:start;text-align:center}
+.sug{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px;margin-top:10px}
+.sug div{border-top:2px solid var(--line);padding-top:6px;font-size:14px}.sug b{display:block}
+.empty{color:var(--muted);padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:14px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.box h2{font-size:18px;margin:0 0 2px}
+.br{margin:10px 0}.brl{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:3px}
+.trk{height:10px;background:var(--line);border-radius:6px}.fl{height:100%;background:var(--bar);border-radius:6px}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:13px}
+details.how{margin-top:26px;color:var(--muted);font-size:13px}details.how summary{cursor:pointer;color:var(--fg)}
+footer{margin-top:20px;font-size:12px;color:var(--muted)}
+[hidden]{display:none!important}
+@media(max-width:480px){.step{grid-template-columns:1fr}.time{justify-self:start}}
+</style>
+</head>
+<body>
+<div class="rp">
+  <div class="head">
+    <div><h1>Radar Previdenciário</h1><p class="sub">O que está em alta no direito previdenciário, com pauta pronta para vídeo, estático e stories.</p></div>
+    <span class="asof" id="asof">—</span>
+  </div>
+  <p class="take" id="take">—</p>
+  <div class="kpis">
+    <div class="kpi"><span>Pautas na semana</span><b id="k1">—</b></div>
+    <div class="kpi"><span>Para publicar já</span><b id="k2">—</b></div>
+    <div class="kpi"><span>Veículos cobrindo</span><b id="k3">—</b></div>
+    <div class="kpi"><span>Assunto mais em alta</span><b class="t" id="k4">—</b></div>
+  </div>
+  <div class="bar">
+    <div class="tabs" role="tablist">
+      <button class="tab" data-tab="dia" aria-selected="true">Hoje</button>
+      <button class="tab" data-tab="semana" aria-selected="false">Semana</button>
+      <button class="tab" data-tab="mes" aria-selected="false">Mês</button>
+    </div>
+    <select id="filtro" aria-label="Filtrar por assunto"></select>
+  </div>
+  <section data-pane="dia"><p class="note">Últimas 48 horas a partir da notícia mais recente coletada. Mais veículos cobrindo = mais em alta.</p><div class="list" id="cdia"></div></section>
+  <section data-pane="semana" hidden><p class="note">Últimos 7 dias a partir da notícia mais recente coletada, do assunto mais coberto para o menos coberto.</p><div class="list" id="csem"></div></section>
+  <section data-pane="mes" hidden>
+    <p class="note">Resumo do que foi coletado até agora. Os meses anteriores têm só os destaques encontrados; daqui para frente o painel acumula todo dia.</p>
+    <div class="grid">
+      <div class="box"><h2>Assuntos mais cobertos</h2><p class="note">Número de veículos diferentes por assunto.</p><div id="temas"></div></div>
+      <div class="box"><h2>Por mês</h2><p class="note">Notícias coletadas e assunto mais coberto de cada mês.</p>
+        <table><thead><tr><th>Mês</th><th>Notícias</th><th>Veículos</th><th>Assunto em alta</th></tr></thead><tbody id="meses"></tbody></table></div>
+    </div>
+  </section>
+  <details class="how"><summary>Como ler este painel</summary>
+    <p><b>Veículos:</b> quantos veículos diferentes publicaram o assunto entre os que encontrei. É o termômetro de "em alta".</p>
+    <p><b>Publicar já:</b> pauta com prazo ou data próxima, em que o atraso faz perder relevância.</p>
+    <p><b>Ganchos e roteiro:</b> pontos de partida editoriais. Antes de publicar, confira o texto com o time jurídico e com as regras de publicidade da OAB.</p>
+    <p><b>Fontes:</b> gov.br e INSS, portais de notícias, veículos jurídicos, IBDP, IEPREV e Previdenciarista.com. Assunto, urgência e sugestões são julgamento editorial.</p>
+  </details>
+  <footer>Uso interno. Conteúdo editorial: revisar com o jurídico antes de publicar. Atualizado em __BUILT__.</footer>
+</div>
+<script>
+var DATA=__DATA__;
+(function(){
+var DAY=864e5,MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
+ML=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],filtro='';
+function dt(s){return new Date(s+'T00:00:00Z')}
+function fd(s){var d=dt(s);return d.getUTCDate()+' '+MES[d.getUTCMonth()]+' '+d.getUTCFullYear()}
+function h(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+var rows=DATA.map(function(r){r.outlets=Number(r.outlets)||0;return r});
+var max=Math.max.apply(null,rows.map(function(r){return +dt(r.date)}));
+function win(days){return rows.filter(function(r){return +dt(r.date)>=max-days*DAY}).sort(function(a,b){return b.outlets-a.outlets||(a.date<b.date?1:-1)})}
+function top(list){var t={};list.forEach(function(r){t[r.theme]=(t[r.theme]||0)+r.outlets});var k=Object.keys(t).sort(function(a,b){return t[b]-t[a]})[0];return k?{name:k,n:t[k]}:null}
+function card(r){
+ var c=h('article','card'+(r.urgent==='sim'?' urg':'')),m=h('div','meta');
+ if(r.urgent==='sim')m.appendChild(h('span','chip hot','Publicar já'));
+ m.appendChild(h('span','chip',r.theme));m.appendChild(h('span','chip',r.outlets+(r.outlets===1?' veículo':' veículos')));
+ m.appendChild(h('span',null,fd(r.date)+' · '+r.source));c.appendChild(m);c.appendChild(h('h3',null,r.title));
+ if(r.subtema)c.appendChild(h('div','lab','Subtema: '+r.subtema));
+ if(r.hook1)c.appendChild(h('div','lab','O que aconteceu, sem juridiquês'));
+ c.appendChild(h('p',null,r.o_que||r.summary));
+ if(/^https?:\/\//.test(r.url)){var a=h('a','src','Abrir fonte ↗');a.href=r.url;a.target='_blank';a.rel='noopener noreferrer';c.appendChild(a)}
+ if(r.confirmar)c.appendChild(h('p','conf','Confirmar antes de publicar: '+r.confirmar));
+ if(r.hook1){
+  var hk=h('div','hooks');[r.hook1,r.hook2].forEach(function(t,i){var d=h('div','hook');d.appendChild(h('small',null,'Gancho '+(i+1)));d.appendChild(document.createTextNode(t));hk.appendChild(d)});c.appendChild(hk);
+  var ro=h('details','ro');if(r.urgent==='sim')ro.open=true;ro.appendChild(h('summary',null,'Roteiro rápido de 45 segundos · '+r.formato));
+  [['0–5s','Gancho visual e fala inicial: '+r.gancho],['5–35s','Desenvolvimento prático: '+r.desenvolvimento],['35–45s','Chamada para ação: '+r.cta]].forEach(function(p){var s=h('div','step');s.appendChild(h('span','time',p[0]));s.appendChild(h('span',null,p[1]));ro.appendChild(s)});
+  c.appendChild(ro);return c}
+ var s=h('div','sug');[['Vídeo',r.video],['Estático',r.static],['Stories',r.stories]].forEach(function(p){var d=h('div');d.appendChild(h('b',null,p[0]));d.appendChild(document.createTextNode(p[1]||''));s.appendChild(d)});c.appendChild(s);return c}
+function cards(id,days){var el=document.getElementById(id),l=win(days).filter(function(r){return !filtro||r.theme===filtro});
+ el.replaceChildren.apply(el,l.length?l.map(card):[h('div','empty','Nenhuma notícia coletada nesta janela para o filtro escolhido.')])}
+var wk=win(7),tp=top(wk),urg=wk.filter(function(r){return r.urgent==='sim'}).length;
+document.getElementById('asof').textContent='Notícia mais recente: '+fd(new Date(max).toISOString().slice(0,10));
+document.getElementById('take').textContent=tp?('Em alta na semana: '+tp.name+'. '+(urg?(urg===1?'1 pauta pede publicação já.':urg+' pautas pedem publicação já.'):'Nenhuma pauta urgente.')):'';
+document.getElementById('k1').textContent=wk.length;document.getElementById('k2').textContent=urg;
+document.getElementById('k3').textContent=wk.reduce(function(s,x){return s+x.outlets},0);document.getElementById('k4').textContent=tp?tp.name:'—';
+var sel=document.getElementById('filtro'),temas=Array.from(new Set(rows.map(function(r){return r.theme}))).sort();
+sel.replaceChildren.apply(sel,[new Option('Todos os assuntos','')].concat(temas.map(function(t){return new Option(t,t)})));
+sel.onchange=function(){filtro=sel.value;cards('cdia',1);cards('csem',7)};
+cards('cdia',1);cards('csem',7);
+var tm={};rows.forEach(function(r){var k=tm[r.theme]=tm[r.theme]||{n:0,v:0};k.n++;k.v+=r.outlets});
+var tl=Object.keys(tm).sort(function(a,b){return tm[b].v-tm[a].v}),mx=tm[tl[0]].v||1,te=document.getElementById('temas');
+te.replaceChildren.apply(te,tl.map(function(k){var d=h('div','br'),l=h('div','brl');l.appendChild(h('span',null,k));l.appendChild(h('span',null,tm[k].v+' veículos · '+tm[k].n+(tm[k].n===1?' notícia':' notícias')));
+ var t=h('div','trk'),f=h('div','fl');f.style.width=Math.round(100*tm[k].v/mx)+'%';t.appendChild(f);d.appendChild(l);d.appendChild(t);return d}));
+var mm={};rows.forEach(function(r){var k=r.date.slice(0,7),x=mm[k]=mm[k]||{n:0,v:0,t:{}};x.n++;x.v+=r.outlets;x.t[r.theme]=(x.t[r.theme]||0)+r.outlets});
+var me=document.getElementById('meses');
+me.replaceChildren.apply(me,Object.keys(mm).sort().reverse().map(function(k){var x=mm[k],t=Object.keys(x.t).sort(function(a,b){return x.t[b]-x.t[a]})[0],p=k.split('-'),tr=document.createElement('tr');
+ [ML[+p[1]-1]+' '+p[0],x.n,x.v,t].forEach(function(v){tr.appendChild(h('td',null,String(v)))});return tr}));
+document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-tab');
+ document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+ document.querySelectorAll('[data-pane]').forEach(function(p){p.hidden=p.getAttribute('data-pane')!==k});sel.hidden=(k==='mes')})});
+})();
+</script>
+</body>
+</html>

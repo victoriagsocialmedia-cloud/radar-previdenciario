@@ -5,3 +5,8 @@ Painel de notícias previdenciárias em alta, com ganchos e roteiros de 45 s par
 - `data/noticias.json`: as notícias (edite ou acrescente linhas aqui)
 - `template.html` + `build.py`: geram o `index.html` (`python3 build.py`)
 - `index.html`: o site publicado pelo GitHub Pages
+
+## Hospedagem
+
+- Vercel: projeto ligado a este repositório; cada push em `main` publica o `index.html` já gerado (sem etapa de build).
+- Rotina: copiar o JSON novo para `data/noticias.json`, rodar `python3 build.py`, commit e push.
